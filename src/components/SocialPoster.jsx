@@ -1,93 +1,96 @@
 import React from 'react';
-import { Waves, Disc3, Phone } from 'lucide-react';
+import { Waves, Phone, Globe, MapPin } from 'lucide-react';
 
-const SocialPoster = () => {
+const ModernLaundryPoster = () => {
   return (
-    <div className="relative bg-gradient-to-br from-blue-500 to-green-400 min-h-screen flex flex-col items-center justify-center p-16 font-sans overflow-hidden">
-      {/* Background wave */}
-      <div className="absolute -bottom-40 -left-20 w-full h-96 bg-blue-500/10 transform rotate-12 origin-top-left shadow-xl"></div>
-      
-      {/* Logo */}
-      <div className="mb-8">
-        <Disc3 size={180} className="text-green-400" />
+    <div className="relative bg-[#243773] min-h-screen w-full flex flex-col items-center justify-start p-8 font-sans overflow-hidden">
+      {/* Wave Background */}
+      <div className="absolute top-0 left-0 w-full h-full">
+        <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-[#D94EA8]/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-[#7EDDF2]/20 rounded-full blur-3xl"></div>
       </div>
 
-      {/* Main slogan */}
-      <h1 className="text-6xl font-bold text-center text-white mb-12 leading-tight">
-        Agua, jabón<br/> 
-        <span className="text-yellow-300">¡acción!</span>
-      </h1>
-
-      {/* Services grid */}
-      <div className="grid grid-cols-2 gap-12 mb-16 w-full max-w-4xl">
-        <ServiceCard 
-          icon={<Waves className="w-20 h-20"/>}
-          title="Lavado y Secado"
-          items={['Prendas diarias', 'Ropa de cama', 'Cortinas', 'Manteles', 'Trajes']}
-        />
-        
-        <ServiceCard 
-          icon={<Waves className="w-20 h-20"/>}
-          title="Planchado Profesional"
-          items={['Tecnología a vapor', 'Prendas delicadas', 'Pliegues perfectos']}
-        />
+      {/* Logo Section */}
+      <div className="relative z-10 mb-8">
+        <div className="flex items-center gap-4">
+          <Waves className="w-16 h-16 text-[#7EDDF2]" />
+          <h1 className="text-4xl font-bold text-white">LAVAPRENDA</h1>
+        </div>
       </div>
 
-      {/* Delivery section */}
-      <div className="bg-white/90 p-8 rounded-2xl shadow-2xl mb-12 w-full max-w-3xl">
-        <div className="flex items-center gap-8">
-          <Waves className="text-7xl text-blue-500 w-16 h-16"/>
-          <div>
-            <h3 className="text-4xl font-bold text-gray-700 mb-4">
-              Alquiler de Lavadoras
-            </h3>
-            <p className="text-2xl text-green-500 font-semibold">
-              Delivery Gratis + Detergente Incluido<br/>
-              <span className="text-xl text-gray-600">(Casco Central de La Grita)</span>
-            </p>
+      {/* Main Content */}
+      <div className="relative z-10 w-full max-w-4xl bg-white/10 backdrop-blur-lg rounded-3xl p-8 mb-8">
+        <h2 className="text-6xl font-bold text-white mb-8">
+          Servicio de
+          <span className="block text-[#D94EA8]">Lavandería</span>
+        </h2>
+
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <ServiceCard
+            title="Servicios Principales"
+            items={[
+              'Lavado y Secado',
+              'Planchado Profesional',
+              'Ropa de Cama',
+              'Cortinas y Manteles',
+              'Trajes'
+            ]}
+          />
+          <ServiceCard
+            title="Servicios Especiales"
+            items={[
+              'Alquiler de Lavadoras',
+              'Delivery Gratis',
+              'Detergente Incluido',
+              'Servicio Express',
+              'Atención Personalizada'
+            ]}
+          />
+        </div>
+
+        {/* Location Info */}
+        <div className="flex items-center gap-2 text-[#7EDDF2] mb-4">
+          <MapPin className="w-6 h-6" />
+          <span className="text-lg">Casco Central de La Grita</span>
+        </div>
+      </div>
+
+      {/* Contact Section */}
+      <div className="relative z-10 w-full max-w-4xl">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-white">
+          <div className="flex items-center gap-4 bg-[#2D55A6] px-6 py-3 rounded-full">
+            <Phone className="w-6 h-6" />
+            <span className="text-xl font-medium">0424 303.5553</span>
+          </div>
+          <div className="text-2xl font-bold">
+            María Rangel
+          </div>
+          <div className="flex gap-4">
+            {['facebook', 'instagram', 'twitter'].map((social) => (
+              <div key={social} className="w-10 h-10 rounded-full bg-[#D94EA8] flex items-center justify-center">
+                <Globe className="w-5 h-5" />
+              </div>
+            ))}
           </div>
         </div>
       </div>
-
-      {/* Contact */}
-      <div className="flex flex-col items-center gap-6">
-        <div className="text-5xl font-bold text-white bg-gray-700/80 px-12 py-4 rounded-full flex items-center gap-4">
-          <Phone className="w-8 h-8" />
-          <a href="tel:+584243035553">0424 303.5553</a>
-        </div>
-        <p className="text-3xl text-white font-medium">María Rangel</p>
-        <div className="h-2 w-48 bg-green-400 rounded-full mt-4"/>
-      </div>
-
-      {/* Decorative bubbles */}
-      {[...Array(12)].map((_, i) => (
-        <div
-          key={i}
-          className="absolute bg-white/20 rounded-full"
-          style={{
-            width: `${Math.random() * 40 + 20}px`,
-            height: `${Math.random() * 40 + 20}px`,
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`
-          }}
-        />
-      ))}
     </div>
   );
 };
 
-const ServiceCard = ({ icon, title, items }) => (
-  <div className="bg-white/90 p-8 rounded-2xl shadow-xl hover:-translate-y-2 transition-transform">
-    <div className="flex flex-col items-center">
-      <div className="text-blue-500 mb-4">{icon}</div>
-      <h3 className="text-3xl font-bold text-gray-700 mb-4">{title}</h3>
-      <ul className="text-xl text-center space-y-2 text-gray-600">
-        {items.map((item, i) => (
-          <li key={i}>{item}</li>
-        ))}
-      </ul>
-    </div>
+const ServiceCard = ({ title, items }) => (
+  <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 hover:bg-white/10 transition-all">
+    <h3 className="text-xl font-semibold text-[#7EDDF2] mb-4">{title}</h3>
+    <ul className="space-y-2">
+      {items.map((item, index) => (
+        <li key={index} className="text-white flex items-center gap-2">
+          <div className="w-2 h-2 bg-[#D94EA8] rounded-full"></div>
+          {item}
+        </li>
+      ))}
+    </ul>
   </div>
 );
 
-export default SocialPoster;
+export default ModernLaundryPoster;
